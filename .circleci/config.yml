@@ -3,7 +3,7 @@ jobs:
   ruby-2.6.3:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
-        environments:
+        environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
