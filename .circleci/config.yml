@@ -3,7 +3,15 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
+      - image: circleci/postgres:9.5.20-alpine
+        environment:
+          POSTGRES_USER: circleci-demo-ruby
+          POSTGRES_DB: rails-blog
+          POSTGRES_PASSWORD: ""
     
     steps:
       - checkout
-      - run: echo "Hello CircleCI"
+      - run: echo "Hello"
+      - run: 
+        name: Wait for DB
+        command: dockerize -wait tcp://localhost:5431 -timetout 1m
