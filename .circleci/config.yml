@@ -14,4 +14,4 @@ jobs:
       - run: echo "Hello"
       - run:
           name: Wait for DB
-          command: dockerize -wait tcp://localhost:5431 -timeout 1m
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
