@@ -48,9 +48,9 @@ workflows:
   version: 2
   build:
     jobs:
-      - "ruby-2.6.3":
-        requires:
-          - "ruby-2.5.5"
-          - "ruby-2.4.6"
       - "ruby-2.5.5"
       - "ruby-2.4.6"
+      - "ruby-2.6.3":
+          requires:
+            - "ruby-2.5.5"
+            - "ruby-2.4.6"
