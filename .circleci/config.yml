@@ -12,6 +12,6 @@ jobs:
     steps:
       - checkout
       - run: echo "Hello"
-      - run: 
-        name: Wait for DB
-        command: dockerize -wait tcp://localhost:5431 -timetout 1m
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5431 -timetout 1m
