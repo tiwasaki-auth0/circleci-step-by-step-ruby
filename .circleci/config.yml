@@ -87,7 +87,8 @@ workflows:
     jobs:
       - "ruby-2.5.5"
       - "ruby-2.4.6"
-      - "ruby-2.6.3":
-          requires:
-            - "ruby-2.5.5"
-            - "ruby-2.4.6"
+      - "ruby-2.6.3"
+#      - "ruby-2.6.3":
+#          requires:
+#            - "ruby-2.5.5"
+#            - "ruby-2.4.6"
