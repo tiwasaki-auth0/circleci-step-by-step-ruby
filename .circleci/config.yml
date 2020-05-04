@@ -46,7 +46,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 workflows:
   version: 2
-  build_all:
+  build:
     jobs:
       - "ruby-2.6.3":
         requires:
