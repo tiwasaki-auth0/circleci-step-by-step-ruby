@@ -12,9 +12,30 @@ jobs:
       - checkout
       - run: echo "Hello"
       - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+      - run:
+          name: Yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
+      - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
+      - run:
+          name: Database setup
+          command: bin/rails db:schema:load --trace
+      - run:
+          name: Run rspec
+          command: |
+            bundle exec rspec --profile 10 \
+              --format RspecJunitFormatter \
+              --out test_results/rspec.xml \
+              --format progress \
+              spec/**/*_spec.rb
+      - store_test_results:
+          path: test_results
+      - store_artifacts:
+          path: test_results
+          
   ruby-2.5.5:
     docker:
       - image: circleci/ruby:2.5.5-stretch-node
