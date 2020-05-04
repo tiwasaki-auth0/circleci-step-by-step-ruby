@@ -18,7 +18,7 @@ jobs:
           POSTGRES_PASSWORD: ""
     steps:
       - checkout
-      - run: echo "Hello"
+      - run: echo "Hello ${TEST_ENV}"
       - restore_cache:
           keys:
             - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
